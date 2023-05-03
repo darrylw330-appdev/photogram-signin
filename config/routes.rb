@@ -5,18 +5,19 @@ Rails.application.routes.draw do
   # User routes
 
   # CREATE
+  get("/user_sign_up", { :controller => "users", :action => "new_registration_form" })
+
+  get("/user_sign_out", { :controller => "users", :action => "toast_cookies" })
+
+  get("user_sign_in", { :controller => "users", :action => "new_session_form" })
+
+  post("/verify_credentials", { :controller => "users", :action => "authenticate" })
+
   get("/insert_user_record", {:controller => "users", :action => "create" })
 
   # READ
   get("/users", {:controller => "users", :action => "index"})
   get("/users/:the_username", {:controller => "users", :action => "show"})
-
-  get("/user_sign_up", { controller: "users", :action => "sign_up"})
-  get("/user_sign_out", { controller: "users", :action => "sign_out"})
-  get("/user_sign_in", { controller: "users", :action => "sign_in"})
-  
-  post("/verify_credentials", { controller: "users", action: "authenticate"})
-
 
   # UPDATE
   get("/update_user/:the_user_id", {:controller => "users", :action => "update" })
@@ -43,7 +44,7 @@ Rails.application.routes.draw do
   # Comment routes
 
   # CREATE
-  post("/insert_comment_record", { :controller => "comments", :action => "create" })
+  get("/insert_comment_record", { :controller => "comments", :action => "create" })
 
   # DELETE
 
