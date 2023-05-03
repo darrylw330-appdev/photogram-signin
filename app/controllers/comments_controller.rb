@@ -1,6 +1,4 @@
 class CommentsController < ApplicationController
-
-
   def create
     comment = Comment.new
 
@@ -12,6 +10,4 @@ class CommentsController < ApplicationController
 
     redirect_to("/photos/#{comment.photo_id}")
   end
-
-
 end
